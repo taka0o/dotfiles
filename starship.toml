@@ -1,0 +1,80 @@
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$golang\
+$nodejs\
+$rust\
+$time\
+[ ](fg:#cba6f7)\
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like  to save some space
+[username]
+show_always = true
+style_user = "bg:#b4befe fg:#1e1e2e"
+style_root = "bg:#b4befe fg:#1e1e2e"
+format = '[ >_ ]($style)'
+
+[directory]
+style = "bg:#74c7ec fg:#1e1e2e"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[c]
+symbol = " "
+style = "bg:#a6e3a1"
+format = '[[ $symbol ($version) ](bg:#a6e3a1 fg:#1e1e2e)]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[[ $symbol $context ](bg:#06969A fg:#1e1e2e)]($style) $path'
+
+[git_branch]
+symbol = ""
+style = "bg:#f38ba8 fg:#1e1e2e"
+format = '[[ $symbol $branch ](bg:#f38ba8 fg:#1e1e2e)]($style)'
+
+[git_status]
+style = "bg:#f38ba8"
+format = '[[($all_status$ahead_behind )](bg:#f38ba8 fg:#1e1e2e)]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#a6e3a1"
+format = '[[ $symbol ($version) ](bg:#a6e3a1 fg:#1e1e2e)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:#a6e3a1"
+format = '[[ $symbol ($version) ](bg:#a6e3a1 fg:#1e1e2e)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:#a6e3a1"
+format = '[[ $symbol ($version) ](bg:#a6e3a1 fg:#1e1e2e)]($style)'
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#cba6f7"
+format = '[[ ♥ $time ](bg:#cba6f7 fg:#1e1e2e)]($style)'
